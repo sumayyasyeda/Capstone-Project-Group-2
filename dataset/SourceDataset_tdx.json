@@ -1,0 +1,90 @@
+{
+	"name": "SourceDataset_tdx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CapstoneBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "city_day.csv",
+				"container": "bronze"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "PM2.5",
+				"type": "String"
+			},
+			{
+				"name": "PM10",
+				"type": "String"
+			},
+			{
+				"name": "NO",
+				"type": "String"
+			},
+			{
+				"name": "NO2",
+				"type": "String"
+			},
+			{
+				"name": "NOx",
+				"type": "String"
+			},
+			{
+				"name": "NH3",
+				"type": "String"
+			},
+			{
+				"name": "CO",
+				"type": "String"
+			},
+			{
+				"name": "SO2",
+				"type": "String"
+			},
+			{
+				"name": "O3",
+				"type": "String"
+			},
+			{
+				"name": "Benzene",
+				"type": "String"
+			},
+			{
+				"name": "Toluene",
+				"type": "String"
+			},
+			{
+				"name": "Xylene",
+				"type": "String"
+			},
+			{
+				"name": "AQI",
+				"type": "String"
+			},
+			{
+				"name": "AQI_Bucket",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

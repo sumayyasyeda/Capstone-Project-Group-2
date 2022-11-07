@@ -1,0 +1,19 @@
+{
+	"name": "SourceDataset_xai",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CapstoneBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "city_day.csv",
+				"container": "bronze"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_tdx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "city_day"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
