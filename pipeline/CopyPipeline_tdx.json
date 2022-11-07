@@ -1,0 +1,250 @@
+{
+	"name": "CopyPipeline_tdx",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_tdx",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "bronze//city_day.csv"
+					},
+					{
+						"name": "Destination",
+						"value": ".city_day"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "City",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PM2.5",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PM2.5",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PM10",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PM10",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NO2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NO2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NOx",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NOx",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NH3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NH3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SO2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SO2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "O3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "O3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Benzene",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Benzene",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Toluene",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Toluene",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Xylene",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Xylene",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AQI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AQI",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AQI_Bucket",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AQI_Bucket",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_tdx",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_tdx",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-11-01T14:23:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
